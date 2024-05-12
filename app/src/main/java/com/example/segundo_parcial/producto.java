@@ -1,13 +1,15 @@
-package com.example.parcial_2;
+package com.example.segundo_parcial;
 
-public class producto {
-    private String ID;
+import java.io.Serializable;
+
+public class producto implements Serializable {
+    private String codigo;
     private String nombre;
     private String precio;
     private String costo;
 
-    public producto(String nombre, String ID, String costo, String precio) {
-        this.ID = ID;
+    public producto(String nombre, String _id, String costo, String precio) {
+        this.codigo = _id;
         this.nombre = nombre;
         this.precio = precio;
         this.costo = costo;
@@ -37,18 +39,18 @@ public class producto {
         this.nombre = nombre;
     }
 
-    public String getId() {
-        return ID;
+    public String getCodigo() {
+        return codigo;
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
+    public void setId(String _id) {
+        this.codigo = _id;
     }
 
     @Override
     public String toString() {
         return "producto{" +
-                "ID='" + ID + '\'' +
+                "codigo='" + codigo + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", precio='" + precio + '\'' +
                 ", costo='" + costo + '\'' +

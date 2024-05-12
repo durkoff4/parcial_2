@@ -1,4 +1,4 @@
-package com.example.parcial_2;
+package com.example.segundo_parcial;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -13,13 +13,11 @@ public class BaseDatos extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(DefDB.crear_tabla);
+        db.execSQL(DefBD.crear_tabla);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // db.execSQL(DefBD.crear_tabla);
     }
-
-
 }

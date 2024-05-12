@@ -1,13 +1,13 @@
 plugins {
-    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.android.application)
 }
 
 android {
-    namespace = "com.example.parcial_2"
+    namespace = "com.example.segundo_parcial"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.parcial_2"
+        applicationId = "com.example.segundo_parcial"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

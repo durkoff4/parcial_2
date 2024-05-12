@@ -1,8 +1,8 @@
-package com.example.parcial_2;
+package com.example.segundo_parcial;
 
-public class DefDB {
+public class DefBD {
 
-    public static final String nameDB = "Productos";
+    public static final String nameDB = "Producto";
     public static final String tabla_producto = "producto";
     public static final String col_cod = "codigo";
     public static final String col_nombre = "nombre";
@@ -10,8 +10,8 @@ public class DefDB {
     public static final String col_costo = "costo";
 
     public static final String crear_tabla = "CREATE TABLE IF NOT EXISTS "
-            + DefDB.tabla_producto + "(" + DefDB.col_cod + " text primary key," +
-            DefDB.col_nombre + " text," +
-            DefDB.col_precio + " text," +
-            DefDB.col_costo + " text);";
+            + DefBD.tabla_producto + "(" + DefBD.col_cod + " text primary key," +
+            DefBD.col_nombre + " text," +
+            DefBD.col_precio + " text," +
+            DefBD.col_costo + " text);";
 }

@@ -1,5 +1,6 @@
-package com.example.parcial_2;
+package com.example.segundo_parcial;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -8,8 +9,12 @@ import android.widget.EditText;
 import android.widget.FilterQueryProvider;
 import android.widget.ListView;
 import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
 
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 public class listar_productos extends AppCompatActivity {
 
@@ -22,13 +27,13 @@ public class listar_productos extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar_productos);
-        listado = findViewById(R.id.lista_productos);
-        filtrar = findViewById(R.id.btn_filtrar);
-        txt_filtrar = findViewById(R.id.id_a_filtrar);
+        filtrar = (Button) findViewById(R.id.btn_filtrar);
+        txt_filtrar = (EditText) findViewById(R.id.id_a_filtrar);
+        listado = (ListView) findViewById(R.id.lista_productos);
         ProductoController pc = new ProductoController(this);
-        Cursor c = pc.todosLosProductos();
-        if (c.getCount() > 0) {
-            PCA = new ProductoCursorAdapter(this, c, false);
+        Cursor c = pc.allproductos();
+        if (c.getCount()>0)
+        { PCA = new ProductoCursorAdapter(this,c,false);
             listado.setAdapter(PCA);
             listado.setTextFilterEnabled(true);
             PCA.setFilterQueryProvider(new FilterQueryProvider() {
@@ -37,9 +42,10 @@ public class listar_productos extends AppCompatActivity {
                     return null;
                 }
             });
-        } else {
-            Toast.makeText(getApplicationContext(), "No hay datos", Toast.LENGTH_SHORT).show();
         }
+        else{
+            Toast.makeText(getApplicationContext(), "No hay datos",Toast.LENGTH_SHORT).show();}
+
 
         filtrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,7 +55,7 @@ public class listar_productos extends AppCompatActivity {
                     recreate();
                 } else {
                     ProductoController PC = new ProductoController(getApplicationContext());
-                    Cursor C = PC.buscarProducto(txt);
+                    Cursor C = PC.buscarProduct(txt);
                     if (C != null && C.getCount() > 0) {
                         PCA.changeCursor(C);
                         PCA.notifyDataSetChanged();
@@ -60,5 +66,7 @@ public class listar_productos extends AppCompatActivity {
             }
         });
     }
-}
 
+
+
+}

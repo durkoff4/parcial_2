@@ -10,8 +10,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Parcial_2"
+        android:theme="@style/Theme.Segundo_parcial"
         tools:targetApi="31">
+        <activity
+            android:name=".actualizar_producto"
+            android:exported="false" />
         <activity
             android:name=".listar_productos"
             android:exported="false" />

@@ -1,4 +1,4 @@
-package com.example.parcial_2;
+package com.example.segundo_parcial;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText id,nombre,precio,costo;
 
-    Button insertar,eliminar,listar;
+    Button insertar,eliminar,listar,editar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         insertar = findViewById(R.id.btn_insertar);
         listar = findViewById(R.id.btn_listar);
         eliminar = findViewById(R.id.btn_eliminar);
+        editar = findViewById(R.id.btn_actualizar);
         id = findViewById(R.id.ing_ID);
         nombre = findViewById(R.id.ing_nombre);
         precio = findViewById(R.id.ing_precio);
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ProductoController PC = new ProductoController(getApplicationContext());
-                PC.eliminarProducto(id.getText().toString());
+                PC.eliminarProdcuto(id.getText().toString());
             }
         });
 
@@ -50,6 +51,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        editar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                producto P = new producto(id.getText().toString(), nombre.getText().toString(), precio.getText().toString(), costo.getText().toString());
+                ProductoController PC = new ProductoController(getApplicationContext());
+                PC.actualizarproducto(P);
+            }
+        });
 
     }
 }
